@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label class="font-weight-bold">A. Data Awal</label>
+    <div class="form-group row">
+      <div class="col-2">
+        <label class="col-form-label">Rujukan</label>
+      </div>
+
+      <div class="col-2">
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="tombolrujukan"
+            id="rujukanYa"
+            value="option1"
+          />
+          <label class="form-check-label" for="inlineRadio1">Ya</label>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="tombolrujukan"
+            id="rujukanTidak"
+            value="option2"
+          />
+          <label class="form-check-label" for="inlineRadio2">Tidak</label>
+        </div>
+      </div>
+    </div>
+    <div class="hiden">
+      <div class="form-group row">
+        <div class="col-2"></div>
+        <div class="col-2">
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="tombolketrujukan"
+              id="rujukanRS"
+              value="option1"
+            />
+            <label class="form-check-label" for="inlineRadio1">RS</label>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="tombolketrujukan"
+              id="rujukanPuskesmas"
+              value="option2"
+            />
+            <label class="form-check-label" for="inlineRadio2">Puskesmas</label>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="tombolketrujukan"
+              id="rujukanDokter"
+              value="option3"
+            />
+            <label class="form-check-label" for="inlineRadio3">Dokter</label>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="tombolketrujukan"
+              id="rujukanLainnya"
+              value="option4"
+            />
+            <label class="form-check-label" for="inlineRadio4">Lainnya</label>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="tombolketrujukan"
+              id="dxRujukan"
+              value="option5"
+            />
+            <label class="form-check-label" for="inlineRadio5">DxRujukan</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-2"></div>
+        <div class="col-4">
+          <div class="row">
+            <div class="col-3">
+              <label for="keteranganRujukan" style="margin-top: -3px"
+                >Keterangan
+              </label>
+            </div>
+            <div class="col-9">
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                name=""
+                id="keteranganRujukan"
+                placeholder=""
+                value="{{ $AsesmenPX->InspeksiLokasi }}"
+                style="margin-top: -7px"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script>
+      $(".hiden").hide();
+
+      var tombolrujuk = 0;
+      $("[name=tombolrujukan]").on("change", function () {
+        if ($("#rujukanYa").is(":checked") == true) {
+          $(".hiden").show();
+          tombolrujuk = 1;
+        } else if ($("#rujukanTidak").is(":checked") == true) {
+          $(".hiden").hide();
+          tombolrujuk = 0;
+        } else {
+          $(".hiden").hide();
+          tombolrujuk = 0;
+        }
+        console.log(tombolrujuk);
+      });
+    </script>
+  </body>
+</html>
